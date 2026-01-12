@@ -28,6 +28,17 @@ document.getElementById("calculate").addEventListener("click", () => {
   const targetYears = 81;
   const remainingMonths = targetYears*12 - (ageYears*12 + ageMonths);
 
+  // ---- AJOUT PATCH REPORTS ----
+  const reports = [4,6,8];
+  let reportResults = "";
+  reports.forEach(p => {
+      // même logique que ton ancien bot : pallier -6
+      reportResults += `Pallier ${p} mois = ${p - 6}\n`;
+  });
+
+  // ---- AFFICHAGE FINAL ----
   document.getElementById("result").textContent =
-    `Âge : ${ageYears} ans et ${ageMonths} mois\nMois restants jusqu'à ${targetYears} ans : ${remainingMonths}`;
+    `Âge : ${ageYears} ans et ${ageMonths} mois\n` +
+    `Mois restants jusqu'à ${targetYears} ans : ${remainingMonths}\n` +
+    reportResults;
 });
